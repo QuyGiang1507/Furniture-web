@@ -28,8 +28,8 @@ export default class Room {
     }
     render() {
         this.$container.appendChild(this.$img);
-        this.$container.appendChild(this.name);
-        this.$container.appendChild(this.price);
+        this.$container.appendChild(this.$name);
+        this.$container.appendChild(this.$price);
         this.$container.appendChild(this.$btn);
 
         return this.$container;
