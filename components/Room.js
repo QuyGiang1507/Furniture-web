@@ -19,7 +19,7 @@ export default class Room {
   
       this.$name = document.createElement("p");
       this.$name.textContent = name;
-      this.$name.setAttribute("class", " font-normal mt-1 text-xl");
+      this.$name.setAttribute("class", "font-normal mt-1 text-xl");
   
       this.$btn = document.createElement("button");
       this.$btn.type = "submit";

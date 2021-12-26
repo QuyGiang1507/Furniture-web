@@ -1,4 +1,7 @@
 import ProductModal from "./ProductModal.js";
+import app from "../index.js";
+import Register from "./Register.js";
+import Login from "./Login.js";
 
 export default class Header {
     $mainContainer;
@@ -6,6 +9,9 @@ export default class Header {
     $phoneEl;
     $socialMediaEl;
     $searchBtn;
+    $loginBtn;
+    $divideEl;
+    $registerBtn;
     $searchInput;
     $tabarContainer;
     $logoEl;
@@ -37,6 +43,19 @@ export default class Header {
         this.$searchBtn = document.createElement("button");
         this.$searchBtn.innerHTML = '<button><i class="fas fa-search"></i></button>';
         this.$searchBtn.setAttribute("class", "text-blue-400 bg-gray-200 px-2 rounded cursor-pointer hover:opacity-60");
+
+        this.$registerBtn = document.createElement("p");
+        this.$registerBtn.textContent = "Đăng ký";
+        this.$registerBtn.setAttribute("class", "ml-4 mr-1.5 cursor-pointer hover:text-red-600 hover:underline");
+        this.$registerBtn.addEventListener("click", this.goToRegister);
+
+        this.$divideEl = document.createElement("p");
+        this.$divideEl.textContent = "|";
+
+        this.$loginBtn = document.createElement("p");
+        this.$loginBtn.textContent = "Đăng nhập";
+        this.$loginBtn.setAttribute("class", "ml-1.5 cursor-pointer hover:text-red-600 hover:underline");
+        this.$loginBtn.addEventListener("click", this.goToLoginPage);
 
         this.$tabarContainer = document.createElement("div");
         this.$tabarContainer.setAttribute("class", "w-1/2 flex justify-between mt-4");
@@ -82,10 +101,23 @@ export default class Header {
         this.$contactEl.setAttribute("class", "font-bold cursor-pointer hover:text-red-600 hover:underline");
     }
 
+    goToRegister = () => {
+        const registerScreen = new Register();
+        app.setActiveScreen(registerScreen);
+    }
+
+    goToLoginPage = () => {
+        const loginScreen = new Login();
+        app.setActiveScreen(loginScreen);
+    }
+
     render() {
         this.$contactsContainer.appendChild(this.$phoneEl);
         this.$contactsContainer.appendChild(this.$socialMediaEl);
         this.$contactsContainer.appendChild(this.$searchBtn);
+        this.$contactsContainer.appendChild(this.$registerBtn);
+        this.$contactsContainer.appendChild(this.$divideEl);
+        this.$contactsContainer.appendChild(this.$loginBtn);
 
         this.$tabarContainer.appendChild(this.$logoEl);
         this.$tabarContainer.appendChild(this.$projectsEl);

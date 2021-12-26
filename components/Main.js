@@ -1,12 +1,12 @@
-import Header from "./components/Header.js";
-import Footer from "./components/Footer.js";
-import HomePage from "./components/HomePage.js";
-import Room from "./components/Room.js";
-import { guestroom, diningroom, bedroom } from "./components/ProductApi.js";
-import RoomName from "./components/RoomName.js";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
+import HomePage from "./HomePage.js";
+import Room from "./Room.js";
+import { guestroom, diningroom, bedroom } from "./ProductApi.js";
+import RoomName from "./RoomName.js";
 
 
-class Main {
+export default class Main {
     $container;
     $header;
     $childContainer;
@@ -15,6 +15,7 @@ class Main {
 
     constructor() {
         this.$container = document.createElement("div");
+        this.$container.setAttribute("class", "overflow-x-hidden");
 
         this.$header = new Header();
         this.$header.$logoEl.addEventListener("click", this.onHomeClick);
@@ -86,7 +87,7 @@ class Main {
         this.$header.$mainContainer.setAttribute("style", "width: 100vw; color: orange; display: flex; flex-direction: column; align-items: center");
     }
 
-    render() {
+    render(mainContainer) {
         const homePage = new HomePage();
 
         this.$itemsContainer.appendChild(homePage.render());
@@ -95,12 +96,6 @@ class Main {
         this.$container.appendChild(this.$itemsContainer);
         this.$container.appendChild(this.$footer.render());
 
-        return this.$container
+        mainContainer.appendChild(this.$container);
     }
 }
-
-const app = document.getElementById("root");
-
-const main = new Main();
-
-app.appendChild(main.render());
