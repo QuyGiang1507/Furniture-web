@@ -12,6 +12,7 @@ export default class Header {
     $loginBtn;
     $divideEl;
     $registerBtn;
+    $userEl;
     $searchInput;
     $tabarContainer;
     $logoEl;
@@ -23,6 +24,7 @@ export default class Header {
     $newEl;
     $organizationEl;
     $contactEl;
+    $cartEl;
 
     constructor() {   
         this.$mainContainer = document.createElement("div");
@@ -48,6 +50,10 @@ export default class Header {
         this.$registerBtn.textContent = "Đăng ký";
         this.$registerBtn.setAttribute("class", "ml-4 mr-1.5 cursor-pointer hover:text-red-600 hover:underline");
         this.$registerBtn.addEventListener("click", this.goToRegister);
+
+        this.$userEl = document.createElement("div");
+        this.$userEl.innerHTML = '<i class="fas fa-user"></i>';
+        this.$userEl.setAttribute("class", "text-white hidden ml-4 cursor-pointer text-xl");
 
         this.$divideEl = document.createElement("p");
         this.$divideEl.textContent = "|";
@@ -118,6 +124,7 @@ export default class Header {
         this.$contactsContainer.appendChild(this.$registerBtn);
         this.$contactsContainer.appendChild(this.$divideEl);
         this.$contactsContainer.appendChild(this.$loginBtn);
+        this.$contactsContainer.appendChild(this.$userEl);
 
         this.$tabarContainer.appendChild(this.$logoEl);
         this.$tabarContainer.appendChild(this.$projectsEl);
