@@ -1,9 +1,9 @@
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import {
   getFirestore,
   collection,
-} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 export const auth = getAuth();
 export const db = getFirestore();
@@ -21,8 +21,18 @@ class App {
   
     setupAuthenticationListener() {
       onAuthStateChanged(auth, (user) => {
-        const mainScreen = new Main();
-        this.setActiveScreen(mainScreen);
+        if(user) {
+          const mainScreen = new Main();
+          mainScreen.$header.$userEl.classList.remove("hidden");
+          mainScreen.$header.$registerBtn.classList.add("hidden");
+          mainScreen.$header.$loginBtn.classList.add("hidden");
+          mainScreen.$header.$divideEl.classList.add("hidden");
+          mainScreen.$cartModal.$cartContainer.classList.remove("hidden");
+          this.setActiveScreen(mainScreen);
+        } else {
+          const mainScreen = new Main();
+          this.setActiveScreen(mainScreen);
+        }
       });
     }
   

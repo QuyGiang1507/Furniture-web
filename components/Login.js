@@ -1,8 +1,9 @@
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import { auth } from "../index.js";
 import Register from "./Register.js";
 import app from "../index.js";
 import InputGroup from "./InputGroup.js";
+import Main from "./Main.js";
 
 
 export default class Login {
@@ -53,6 +54,11 @@ export default class Login {
     signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
         const mainScreen = new Main();
+        mainScreen.$header.$userEl.classList.remove("hidden");
+        mainScreen.$header.$registerBtn.classList.add("hidden");
+        mainScreen.$header.$loginBtn.classList.add("hidden");
+        mainScreen.$header.$divideEl.classList.add("hidden");
+        mainScreen.$cartModal.$cartContainer.classList.remove("hidden");
         app.setActiveScreen(mainScreen);
       })
       .catch((error) => {

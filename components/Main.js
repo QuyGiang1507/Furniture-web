@@ -4,6 +4,7 @@ import HomePage from "./HomePage.js";
 import Room from "./Room.js";
 import { guestroom, diningroom, bedroom } from "./ProductApi.js";
 import RoomName from "./RoomName.js";
+import CartModal from "./CartModal.js";
 
 
 export default class Main {
@@ -11,6 +12,7 @@ export default class Main {
     $header;
     $childContainer;
     $itemsContainer;
+    $cartModal;
     $footer;
 
     constructor() {
@@ -26,6 +28,8 @@ export default class Main {
         this.$childContainer = document.createElement("div");
 
         this.$itemsContainer = document.createElement("div");
+
+        this.$cartModal = new CartModal();
 
         this.$footer = new Footer();
     }
@@ -94,6 +98,7 @@ export default class Main {
 
         this.$container.appendChild(this.$header.render());
         this.$container.appendChild(this.$itemsContainer);
+        this.$container.appendChild(this.$cartModal.render());
         this.$container.appendChild(this.$footer.render());
 
         mainContainer.appendChild(this.$container);
