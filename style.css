@@ -23,13 +23,12 @@ body {
   }
   
   
-  
   .shopping-cart {
     color: rgb(10, 10, 10);
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 250px;
     /* min-height: 300px; */
     margin-right: 20px;
     margin-top: 10px;
