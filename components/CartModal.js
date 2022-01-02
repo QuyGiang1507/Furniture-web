@@ -19,7 +19,7 @@ export default class CartModal {
 
     this.$productQuantity = document.createElement("span");
     this.$productQuantity.textContent = "0";
-    this.$productQuantity.setAttribute('class',"")
+    this.$productQuantity.setAttribute('class',"product-quantity")
 
     this.$cartHead.innerHTML =
     "<img src='https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG4.png' alt='yourimgtext' width='30' height='30'' '/>";

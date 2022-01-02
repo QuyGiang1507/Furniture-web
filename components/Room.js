@@ -1,9 +1,12 @@
+import CartModal from "./CartModal.js";
+
 export default class Room {
     $container;
     $img;
     $name;
     $price;
     $btn;
+    $cartModal
   
     constructor(img, name, price) {
       this.$container = document.createElement("div");
@@ -26,10 +29,14 @@ export default class Room {
       this.$btn.textContent = "Mua hàng";
       this.$btn.setAttribute("class", "add-to-cart bg-red-700 hover:shadow-lg text-white font-bold mt-5 py-1 px-3 rounded");
       this.$btn.addEventListener('click', this.addToCart)
+      
+      this.$cartModal = new CartModal
     }
 
     addToCart =() => {
-      return (this.$name.textContent, this.$price.textContent);
+      let productsInCart = []
+      let cartEl = document.querySelector(".shopping-cart-list")
+      cartEl.innerHTML = this.$name.textContent + "-" +this.$price.textContent
     }
     
     render() {
