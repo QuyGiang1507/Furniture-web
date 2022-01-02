@@ -8,13 +8,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-
-  
-  a {
-    text-decoration: none;
-  }
-  
   
   
   .product span {
@@ -32,6 +25,7 @@ body {
   
   
   .shopping-cart {
+    color: rgb(10, 10, 10);
     position: fixed;
     top: 0;
     right: 0;
@@ -57,16 +51,22 @@ body {
   .empty-cart-btn,
   .cart-checkout {
     display: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+
     
   }
   
   .empty-cart-btn {
+    margin-top: 25px;
     margin-bottom: 5px;
+    background-color: rgba(255, 0, 0, 0.692);
 
   }
   
   .cart-checkout {
-    background: rgba(50, 205, 146, 0.445);
+    background: rgba(18, 119, 23, 0.637);
   }
 a {
   text-decoration: none;

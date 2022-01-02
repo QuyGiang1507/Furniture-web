@@ -1,5 +1,4 @@
 
-
 export default class CartModal {
   $cartContainer;
   $cartHead;
@@ -33,7 +32,7 @@ export default class CartModal {
 
     this.$emptyCartBtn = document.createElement("a");
     this.$emptyCartBtn.href= "#0"
-    this.$emptyCartBtn.textContent = "Huỷ order";
+    this.$emptyCartBtn.textContent = "Xoá giỏ hàng";
     this.$emptyCartBtn.setAttribute("class", "button empty-cart-btn ");
 
     this.$checkoutBtn = document.createElement("a");
